@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppEvaTec.Views.Personas.FicViCpRhCatDomiciliosItem">
+    <StackLayout
+        VerticalOptions="StartAndExpand"
+        Padding="20"
+        x:Name="stack">
+
+        <Label Text="Domicilio" />
+        <Entry Text="{Binding Item.Domicilio}"/>
+
+        <Label Text="Entre Calle 1" />
+        <Entry Text="{Binding Item.EntreCalle1}"/>
+
+        <Label Text="Entre Calle 2" />
+        <Entry Text="{Binding Item.EntreCalle2}"/>
+
+        <Label Text="Codigo Postal" />
+        <Entry Text="{Binding Item.CodigoPostal}"/>
+
+        <Label Text="Coordenadas"/>
+        <Entry Text="{Binding Item.Coordenadas}"/>
+
+        <Label Text="Principal" />
+        <Switch IsToggled="{Binding Item.Principal}"/>
+
+        <Label Text="Pais" />
+        <Picker x:Name="Pais"/>
+        <Entry Text="{Binding Item.Pais}" x:Name="Epais" IsVisible="False"/>
+
+        <Label Text="Estado" />
+        <Picker x:Name="Estado"/>
+        <Entry Text="{Binding Item.Estado}" x:Name="Eestado" IsVisible="False"/>
+
+        <Label Text="Municipio" />
+        <Picker x:Name="Municipio"/>
+        <Entry Text="{Binding Item.Municipio}" x:Name="Emunicipo" IsVisible="False"/>
+
+        <Label Text="Localidad" />
+        <Entry Text="{Binding Item.Localidad}"/>
+
+        <Label Text="Colonia" />
+        <Entry Text="{Binding Item.Colonia}"/>
+
+        <Label Text="Referencia" />
+        <Entry Text="{Binding Item.Referencia}"/>
+
+        <!--
+        <Label Text="Clave Referencia" />
+        <Picker
+            SelectedItem="{Binding SelectedPersona}"
+            ItemsSource="{Binding FicMetItemsPersona}"
+            ItemDisplayBinding="{Binding NumControl}"/>
+        <Entry Text="{Binding SelectedPersona.IdPersona}"/>
+    -->
+        <Label Text="Tipo Domicilio" />
+        <Picker x:Name="TipoD"/>
+        <Entry Text="{Binding Item.TipoDomicilio}" x:Name="etd" IsVisible="False"/>
+
+        <Label Text="Activo" />
+        <Switch IsToggled="{Binding Item.Activo}" />
+
+        <Label Text="Borrado" />
+        <Switch IsToggled="{Binding Item.Borrado}"/>
+
+        <Label Text="IdGenDom" />
+        <Picker x:Name="GenDom"/>
+        <Entry Text="{Binding Item.IdGenDom}" x:Name="uno" IsVisible="False"/>
+
+        <Button Text="Guardar"  Command="{Binding FicMetSaveCommand}"/>
+        <Button Text="Cancelar" Command="{Binding FicMetCancelCommand}"/>
+    </StackLayout>
+</ContentPage>

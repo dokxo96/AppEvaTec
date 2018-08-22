@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:syncfusion="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms"
+             x:Class="AppEvaTec.Views.Personas.FicViCpRhCatTelefonosList"
+             Title="Listado de Telefonos">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem 
+            Name="Nuevo Telefono"
+            Command="{Binding ficMetAddCommand}">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="Android, iOS" Value="plus" />
+                    <On Platform="UWP" Value="Assets/plus.png" />
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+
+            <SearchBar 
+           x:Name="SearchBar"
+           Grid.Row="0"
+           Grid.Column="0"
+           Placeholder="Buscar"
+           PlaceholderColor="Red"
+           FontAttributes="Italic"
+           Text="{Binding busqueda}" 
+           SearchCommand="{Binding ficMetSearch}"/>
+
+            <syncfusion:SfDataGrid x:Name="dataGrid"
+                               VerticalOptions="FillAndExpand"
+                               ColumnSizer="Star"
+                               AutoGenerateColumns="False"
+                               AllowSorting="False"
+                               ItemsSource="{Binding FicMetZt_rh_cat_telefonos_Items}"
+                               SelectedItem="{Binding FicMetZt_rh_cat_telefonos_SelectedItem, Mode=TwoWay}"
+                               SelectionMode="Single"
+                               ScrollingMode="Line"
+                               >
+
+                <syncfusion:SfDataGrid.Columns x:TypeArguments="syncfusion:Columns">
+
+                    <syncfusion:GridTextColumn HeaderText="ID"
+                                           HeaderFontAttribute="Bold"
+                                           HeaderCellTextSize="25"
+                                           MappingName="IdTelefono" />
+
+                    <syncfusion:GridTextColumn HeaderText="CÓDIGO PAIS"
+                                           HeaderFontAttribute="Bold"
+                                           HeaderCellTextSize="25"
+                                           MappingName="CodPais" />
+
+                    <syncfusion:GridTextColumn HeaderText="N° TELEFONO"
+                                           HeaderFontAttribute="Bold"
+                                           HeaderCellTextSize="25"
+                                           MappingName="NumTelefono" />
+
+                    <syncfusion:GridSwitchColumn HeaderText="PRINCIPAL"
+                                           HeaderFontAttribute="Bold"
+                                           HeaderCellTextSize="25"
+                                           MappingName="Principal" />
+
+                </syncfusion:SfDataGrid.Columns>
+
+            </syncfusion:SfDataGrid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

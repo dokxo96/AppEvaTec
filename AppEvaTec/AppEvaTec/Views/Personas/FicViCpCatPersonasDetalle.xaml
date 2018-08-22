@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppEvaTec.Views.FicViCpCatPersonasDetalle">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem 
+            Name="Telefonos"
+            Command="{Binding FicMetAddTelefonosCommand}">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="Android, iOS" Value="plus" />
+                    <On Platform="UWP" Value="Assets/plus.png" />
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+        <ToolbarItem 
+            Name="Domicilios"
+            Command="{Binding FicMetAddDomiciliosCommand}">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="Android, iOS" Value="plus" />
+                    <On Platform="UWP" Value="Assets/plus.png" />
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+        <ToolbarItem 
+            Name="Direccion Web"
+            Command="{Binding FicMetAddDirWebCommand}">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="Android, iOS" Value="plus" />
+                    <On Platform="UWP" Value="Assets/plus.png" />
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <StackLayout 
+        VerticalOptions="StartAndExpand"
+        Padding="20"
+        x:Name="stack">
+
+        <Label Text="IdPersona"/>
+        <Entry Text="{Binding Item.IdPersona}" IsEnabled="False"/>
+
+        <Label Text="IdInstituto" />
+        <Picker
+            SelectedItem="{Binding SelectedInstituto}"
+            ItemsSource="{Binding FicMetItemsInstituto}"
+            ItemDisplayBinding="{Binding Alias}"/>
+        <Entry Text="{Binding SelectedInstituto.IdInstituto}" IsEnabled="False"/>
+
+        <Label Text="Numero de Control" />
+        <Entry Text="{Binding Item.NumControl}"/>
+
+        <Label Text="Nombre" />
+        <Entry Text="{Binding Item.Nombre}"/>
+
+        <Label Text="Apellido Paterno" />
+        <Entry Text="{Binding Item.ApPaterno}"/>
+
+        <Label Text="Apellido Materno" />
+        <Entry Text="{Binding Item.ApMaterno}"/>
+
+        <Label Text="RFC" />
+        <Entry Text="{Binding Item.RFC}"/>
+
+        <Label Text="CURP" />
+        <Entry Text="{Binding Item.CURP}"/>
+
+        <Label Text="Fecha Nacimiento" />
+        <DatePicker x:Name="Date"  Date="{Binding Item.FechaNac}"/>
+        <Entry Text="{Binding Item.FechaNac}" x:Name="dat" IsVisible="False"/>
+
+        <Label Text="TipoPersona" />
+        <Picker x:Name="TP"/>
+        <Entry Text="{Binding Item.TipoPersona}" x:Name="etp" IsVisible="False"/>
+
+        <Label Text="Sexo" />
+        <Picker x:Name="Sex"/>
+        <Entry Text="{Binding Item.Sexo}" x:Name="esex" IsVisible="False"/>
+
+        <Label Text="RutaFoto" />
+        <Entry Text="{Binding Item.RutaFoto}" x:Name="rutaf"/>
+
+        <Button Text="Cargar"  x:Name="cargafoto"/>
+
+        <Image x:Name="img" Source="{Binding Item.RutaFoto}"/>
+        <Label Text="Alias" />
+        <Entry Text="{Binding Item.Alias}"/>
+
+
+        <Label Text="IdGenOcupacion" />
+        <Picker x:Name="GenOcupacion"/>
+        <Entry Text="{Binding IdGenOcupacion}" x:Name="uno" IsVisible="False"/>
+
+        <Label Text="IdGenEstadoCivil" />
+        <Picker x:Name="GenEstadoCivil"/>
+        <Entry Text="{Binding IdGenEstadoCivil}" x:Name="dos" IsVisible="False"/>
+
+        <Label Text="Activo" />
+        <Switch IsToggled="{Binding Item.Activo}" />
+
+        <Label Text="Borrado" />
+        <Switch IsToggled="{Binding Item.Borrado}"/>
+
+        <Label Text="Fecha Registro" />
+        <Entry Text="{Binding Item.FechaReg}" IsEnabled="False"/>
+
+        <Label Text="Usuario Registro" />
+        <Entry Text="{Binding Item.UsuarioReg}" IsEnabled="False"/>
+
+        <Label Text="Fecha Ultima Modificación" />
+        <Entry Text="{Binding Item.FechaUltMod}" IsEnabled="False"/>
+
+        <Label Text="Usuario Ultima Modificación" />
+        <Entry Text="{Binding Item.UsuarioMod}" IsEnabled="False"/>
+
+
+        <Button Text="Actualizar"  Command="{Binding FicMetSaveCommand}"/>
+        <Button Text="Cancelar" Command="{Binding FicMetCancelCommand}"/>
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:syncfusion="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms"
+             x:Class="AppEvaTec.Views.Personas.FicViCpCatPersonasList"
+             Title="Listado de Personas">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem 
+            Name="Nueva Persona"
+            Command="{Binding ficMetAddCommand}">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="Android, iOS" Value="plus" />
+                    <On Platform="UWP" Value="Assets/plus.png" />
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+        <ToolbarItem 
+            Name="Telefonos"
+            Command="{Binding ficMetTelefonos}">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="Android, iOS" Value="plus" />
+                    <On Platform="UWP" Value="Assets/plus.png" />
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+        <ToolbarItem 
+            Name="Domicilios"
+            Command="{Binding ficMetDomicilios}">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="Android, iOS" Value="plus" />
+                    <On Platform="UWP" Value="Assets/plus.png" />
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+        <ToolbarItem 
+            Name="DirWeb"
+            Command="{Binding ficMetDirWeb}">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="Android, iOS" Value="plus" />
+                    <On Platform="UWP" Value="Assets/plus.png" />
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+
+            <SearchBar 
+           x:Name="SearchBar"
+           Grid.Row="0"
+           Grid.Column="0"
+           Placeholder="Buscar"
+           PlaceholderColor="Red"
+           FontAttributes="Italic"
+           Text="{Binding busqueda}" 
+           SearchCommand="{Binding ficMetSearch}"/>
+
+            <syncfusion:SfDataGrid x:Name="dataGrid"
+                               VerticalOptions="FillAndExpand"
+                               ColumnSizer="Star"
+                               AutoGenerateColumns="False"
+                               AllowSorting="False"
+                               ItemsSource="{Binding FicMetZt_cat_personas_Items}"
+                               SelectedItem="{Binding FicMetZt_cat_personas_SelectedItem, Mode=TwoWay}"
+                               SelectionMode="Single"
+                               ScrollingMode="Line"
+                               >
+
+                <syncfusion:SfDataGrid.Columns x:TypeArguments="syncfusion:Columns">
+
+                    <syncfusion:GridTextColumn HeaderText="ID Persona"
+                                           HeaderFontAttribute="Bold"
+                                           HeaderCellTextSize="25"
+                                           MappingName="IdPersona" />
+
+                    <syncfusion:GridTextColumn HeaderText="N° Control"
+                                           HeaderFontAttribute="Bold"
+                                           HeaderCellTextSize="25"
+                                           MappingName="NumControl" />
+
+                    <syncfusion:GridTextColumn HeaderText="RFC"
+                                           HeaderFontAttribute="Bold"
+                                           HeaderCellTextSize="25"
+                                           MappingName="RFC" />
+
+                    <syncfusion:GridTextColumn HeaderText="CURP"
+                                           HeaderFontAttribute="Bold"
+                                           HeaderCellTextSize="25"
+                                           MappingName="CURP" />
+
+                    <syncfusion:GridImageColumn HeaderText="FOTO"
+                                           HeaderFontAttribute="Bold"
+                                           HeaderCellTextSize="25"
+                                           MappingName="RutaFoto"/>
+
+                </syncfusion:SfDataGrid.Columns>
+
+            </syncfusion:SfDataGrid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

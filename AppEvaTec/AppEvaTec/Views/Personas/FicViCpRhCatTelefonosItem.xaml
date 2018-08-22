@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppEvaTec.Views.Personas.FicViCpRhCatTelefonosItem">
+    <StackLayout
+        VerticalOptions="StartAndExpand"
+        Padding="20"
+        x:Name="stack">
+
+        <Label Text="Código Pais" />
+        <Entry Text="{Binding Item.CodPais}"/>
+
+        <Label Text="No. de telefono" />
+        <Entry Text="{Binding Item.NumTelefono}"/>
+
+        <Label Text="No. de extensión" />
+        <Entry Text="{Binding Item.NumExtension}"/>
+
+        <Label Text="Principal" />
+        <Switch IsToggled="{Binding Item.Principal}"/>
+
+        <!--
+        <Label Text="Clave Referencia" />
+        <Picker
+            SelectedItem="{Binding SelectedPersona}"
+            ItemsSource="{Binding FicMetItemsPersona}"
+            ItemDisplayBinding="{Binding NumControl}"/>
+        <Entry Text="{Binding SelectedPersona.IdPersona}" IsVisible="False"/>
+   -->
+        <Label Text="Referencia" />
+        <Entry Text="{Binding Item.Referencia}"/>
+
+        <Label Text="Activo" />
+        <Switch IsToggled="{Binding Item.Activo}" />
+
+        <Label Text="Borrado" />
+        <Switch IsToggled="{Binding Item.Borrado}"/>
+
+        <Label Text="IdGenTelefono"/>
+        <Picker x:Name="GenTelefono"/>
+        <Entry x:Name="uno" Text="{Binding Item.IdGenTelefono}" IsVisible="False"/>
+
+        <Button Text="Guardar"  Command="{Binding FicMetSaveCommand}"/>
+        <Button Text="Cancelar" Command="{Binding FicMetCancelCommand}"/>
+    </StackLayout>
+</ContentPage>

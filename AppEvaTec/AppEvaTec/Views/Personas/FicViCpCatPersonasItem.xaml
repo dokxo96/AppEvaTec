@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppEvaTec.Views.Personas.FicViCpCatPersonasItem">
+    <StackLayout
+        VerticalOptions="StartAndExpand"
+        Padding="20"
+        x:Name="stack">
+
+        <Entry x:Name="IdUsuario" IsEnabled="False"/>
+        <Label Text="IdPersona" IsVisible="False"/>
+        <Entry Text="{Binding Item.IdPersona}" IsVisible="False"/>
+
+        <Label Text="IdInstituto" />
+        <Picker
+            SelectedItem="{Binding SelectedInstituto}"
+            ItemsSource="{Binding FicMetItemsInstituto}"
+            ItemDisplayBinding="{Binding Alias}"/>
+
+        <Entry Text="{Binding SelectedInstituto.IdInstituto}" />
+
+        <Label Text="Numero de Control" />
+        <Entry Text="{Binding Item.NumControl}"/>
+
+        <Label Text="Nombre" />
+        <Entry Text="{Binding Item.Nombre}"/>
+
+        <Label Text="Apellido Paterno" />
+        <Entry Text="{Binding Item.ApPaterno}"/>
+
+        <Label Text="Apellido Materno" />
+        <Entry Text="{Binding Item.ApMaterno}"/>
+
+        <Label Text="RFC" />
+        <Entry Text="{Binding Item.RFC}"/>
+
+        <Label Text="CURP" />
+        <Entry Text="{Binding Item.CURP}"/>
+
+        <Label Text="Fecha Nacimiento" />
+        <Entry Text="{Binding Item.FechaNac}"/>
+
+        <Label Text="TipoPersona" />
+        <Picker x:Name="TP"/>
+        <Entry Text="{Binding Item.TipoPersona}" x:Name="etp" />
+
+        <Label Text="Sexo" />
+        <Picker x:Name="Sex"/>
+        <Entry Text="{Binding Item.Sexo}" x:Name="esex" />
+
+        <Label Text="RutaFoto" />
+        <Entry Text="{Binding Item.RutaFoto}" x:Name="rutaf"/>
+
+        <Button Text="Cargar" x:Name="cargafoto"/>
+
+        <Image x:Name="img"></Image>
+
+        <Label Text="Alias" />
+        <Entry Text="{Binding Item.Alias}"/>
+
+
+        <Label Text="IdGenOcupacion" />
+        <Picker x:Name="GenOcupacion"/>
+        <Entry Text="{Binding IdGenOcupacion}" x:Name="uno" />
+
+        <Label Text="IdGenEstadoCivil" />
+        <Picker x:Name="GenEstadoCivil"/>
+        <Entry Text="{Binding IdGenEstadoCivil}" x:Name="dos" />
+
+        <Label Text="Fecha Registro" IsVisible="False"/>
+        <Entry Text="{Binding Item.FechaReg}" IsVisible="False"/>
+
+        <Label Text="Usuario Registro" IsVisible="False"/>
+        <Entry Text="{Binding Item.UsuarioReg}" IsVisible="False"/>
+
+        <Label Text="Fecha Ultima Modificación" IsVisible="False"/>
+        <Entry Text="{Binding Item.FechaUltMod}" IsVisible="False"/>
+
+        <Label Text="Usuario Ultima Modificación" IsVisible="False"/>
+        <Entry Text="{Binding Item.UsuarioMod}" IsVisible="False"/>
+
+        <Label Text="Activo" />
+        <Switch IsToggled="{Binding Item.Activo}"/>
+
+        <Label Text="Borrado" />
+        <Switch IsToggled="{Binding Item.Borrado}"/>
+
+
+        <Button Text="Guardar"  Command="{Binding FicMetSaveCommand}"/>
+        <Button Text="Cancelar" Command="{Binding FicMetCancelCommand}"/>
+    </StackLayout>
+</ContentPage>

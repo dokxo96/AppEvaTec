@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppEvaTec.Views.Personas.FicViCpRhCatTelefonosDetalle">
+    <StackLayout 
+        VerticalOptions="StartAndExpand"
+        Padding="20"
+        x:Name="stack">
+
+        <Label Text="ID Telefono"/>
+        <Entry Text="{Binding Item.idTelefono}" IsEnabled="False"/>
+
+        <Label Text="Código Pais" />
+        <Entry Text="{Binding Item.CodPais}"/>
+
+        <Label Text="No. de telefono" />
+        <Entry Text="{Binding Item.NumTelefono}"/>
+
+        <Label Text="No. de extensión" />
+        <Entry Text="{Binding Item.NumExtension}"/>
+
+        <Label Text="Principal" />
+        <Switch IsToggled="{Binding Item.Principal}"/>
+
+        <!--
+        <Label Text="Clave Referencia" />
+        <Picker
+            SelectedItem="{Binding SelectedPersona}"
+            ItemsSource="{Binding FicMetItemsPersona}"
+            ItemDisplayBinding="{Binding NumControl}"/>
+        <Entry Text="{Binding SelectedPersona.IdPersona}" IsVisible="False"/>
+-->
+        <Label Text="Referencia" />
+        <Entry Text="{Binding Item.Referencia}"/>
+
+        <Label Text="Activo" />
+        <Switch IsToggled="{Binding Item.Activo}" />
+
+        <Label Text="Borrado" />
+        <Switch IsToggled="{Binding Item.Borrado}"/>
+
+        <Label Text="IdGenTelefono"/>
+        <Entry x:Name="uno" Text="{Binding Item.IdGenTelefono}" IsVisible="False"/>
+        <Picker x:Name="GenTelefono"/>
+
+        <Label Text="Fecha Registro" />
+        <Entry Text="{Binding Item.FechaReg}" IsEnabled="False"/>
+
+        <Label Text="Usuario que Registro" />
+        <Entry Text="{Binding Item.UsuarioReg}" IsEnabled="False"/>
+
+        <Label Text="Ultima Modificación" />
+        <Entry Text="{Binding Item.FechaUltMod}" IsEnabled="False"/>
+
+        <Label Text="Ultimo en modificar" />
+        <Entry Text="{Binding Item.UsuarioMod}" IsEnabled="False"/>
+
+        <Button Text="Actualizar"  Command="{Binding FicMetSaveCommand}"/>
+        <Button Text="Eliminar" Command="{Binding FicMetDeleteCommand}"/>
+        <Button Text="Cancelar" Command="{Binding FicMetCancelCommand}"/>
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppEvaTec.Views.Personas.FicViCpRhCatDirWebItem">
+    <StackLayout
+        VerticalOptions="StartAndExpand"
+        Padding="20"
+        x:Name="stack">
+
+        <Label Text="Id Dir. Web" IsVisible="False"/>
+        <Entry Text="{Binding Item.IdDirWeb}" IsVisible="False"/>
+
+        <Label Text="Descripcion Dir. Web" />
+        <Entry Text="{Binding Item.DesDirWeb}"/>
+
+        <Label Text="DirWeb" />
+        <Entry Text="{Binding Item.DirWeb}"/>
+
+        <Label Text="Principal" />
+        <Switch IsToggled="{Binding Item.Principal}"/>
+
+        <Label Text="IdGenDirWeb" />
+        <Picker x:Name="GenDirWeb"/>
+        <Entry Text="{Binding Item.IdGenDirWeb}" x:Name="uno" IsVisible="False"/>
+
+        <Label Text="Referencia"/>
+        <Entry Text="{Binding Item.Referencia}"/>
+
+        <!--
+        <Label Text="Clave Referencia" />
+        <Picker
+            SelectedItem="{Binding SelectedPersona}"
+            ItemsSource="{Binding FicMetItemsPersona}"
+            ItemDisplayBinding="{Binding NumControl}"/>
+        <Entry Text="{Binding SelectedPersona.IdPersona}"/>
+-->
+        <Label Text="Fecha Registro" IsVisible="False"/>
+        <Entry Text="{Binding Item.FechaReg}" IsVisible="False"/>
+
+        <Label Text="Usuario Registro" IsVisible="False"/>
+        <Entry Text="{Binding Item.UsuarioReg}" IsVisible="False"/>
+
+        <Label Text="Fecha Ultima Modificación" IsVisible="False"/>
+        <Entry Text="{Binding Item.FechaUltMod}" IsVisible="False"/>
+
+        <Label Text="Usuario Ultima Modificación" IsVisible="False"/>
+        <Entry Text="{Binding Item.UsuarioMod}" IsVisible="False"/>
+
+        <Label Text="Activo" />
+        <Switch IsToggled="{Binding Item.Activo}"/>
+
+        <Label Text="Borrado" />
+        <Switch IsToggled="{Binding Item.Borrado}"/>
+
+
+        <Button Text="Guardar"  Command="{Binding FicMetSaveCommand}"/>
+        <Button Text="Cancelar" Command="{Binding FicMetCancelCommand}"/>
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppEvaTec.Views.Personas.FicViCpLogin">
+    <ContentPage.Content>
+        <Grid >
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="1" Margin="20,0,20,0">
+
+                <Grid.RowDefinitions>
+
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="*"/>
+
+                </Grid.RowDefinitions>
+
+                <Image Source="login.png" HeightRequest="250" WidthRequest="170"/>
+                <Entry x:Name="User" Text="{Binding Usuario}" Grid.Row="1" Placeholder="Nombre de Usuario" PlaceholderColor="#bababa" FontSize="Medium" VerticalOptions="Center"/>
+                <Entry x:Name="Pass" Text="{Binding Contraseña}" Grid.Row="2" Placeholder="Contraseña" PlaceholderColor="#bababa" FontSize="Medium" IsPassword="True"/>
+                <Button x:Name="BtnEntrar" Command="{Binding FicMetLoginCommand}" Text="Iniciar Sesión" BackgroundColor="#1CCB39" TextColor="White" HeightRequest="50" VerticalOptions="Start" Grid.Row="3"/>
+                <Button x:Name="BtnOc" Text="¿Olvidaste tu Contraseña? | Restablecer Contraseña" BackgroundColor="White" TextColor="Black" FontSize="14" FontAttributes="Italic" HorizontalOptions="Center" Grid.Row="4" Margin="0,10,0,0"/>
+                <StackLayout>
+                    <Label Text="{Binding Pruebas }"></Label>
+                    <Label Text="{Binding Tec }"></Label>
+                </StackLayout>
+
+                <Grid Grid.Row="5">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label BackgroundColor="#bababa" HeightRequest="1" HorizontalOptions="FillAndExpand" VerticalOptions="Center"/>
+
+                    <Label Text="Otras Opciones" FontSize="Medium" FontAttributes="Italic" Grid.Column="1" VerticalOptions="Center" Margin="10,0,10,0"/>
+
+                    <Label BackgroundColor="#bababa" Grid.Column="2" HeightRequest="1" HorizontalOptions="FillAndExpand" VerticalOptions="Center"/>
+
+                </Grid>
+
+                <StackLayout Grid.Row="6">
+                    <Button Text="Iniciar Sesión con Facebook" BackgroundColor="#3399ff" TextColor="White" HeightRequest="50" VerticalOptions="Start" Grid.Row="3" Image="facebook.png"
+                            />
+                    <Button Text="Iniciar Sesión con Gmail" BackgroundColor="#ff3333" TextColor="White" HeightRequest="50" VerticalOptions="Start" Grid.Row="3" Image="gmail.png"
+                            />
+                </StackLayout>
+
+
+            </Grid>
+
+            <StackLayout Grid.Row="2">
+                <Button x:Name="NewUser" Command="{Binding FicMetUserCommand}" Text="¿ No estas registrado ? | Crear Nuevo Usuario" BackgroundColor="White" TextColor="Black" VerticalOptions="Center" Grid.Row="1"/>
+            </StackLayout>
+
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

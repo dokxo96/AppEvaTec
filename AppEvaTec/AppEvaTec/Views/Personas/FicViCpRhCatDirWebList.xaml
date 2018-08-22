@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:syncfusion="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms"
+             x:Class="AppEvaTec.Views.Personas.FicViCpRhCatDirWebList"
+             Title="Listado de Direcciones Web">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem 
+            Name="Nueva Dirección Web"
+            Command="{Binding ficMetAddCommand}">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="Android, iOS" Value="plus" />
+                    <On Platform="UWP" Value="Assets/plus.png" />
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+
+            <SearchBar 
+           x:Name="SearchBar"
+           Grid.Row="0"
+           Grid.Column="0"
+           Placeholder="Buscar"
+           PlaceholderColor="Red"
+           FontAttributes="Italic"
+           Text="{Binding busqueda}" 
+           SearchCommand="{Binding ficMetSearch}"/>
+
+            <syncfusion:SfDataGrid x:Name="dataGrid"
+                               VerticalOptions="FillAndExpand"
+                               ColumnSizer="Star"
+                               AutoGenerateColumns="False"
+                               AllowSorting="False"
+                               ItemsSource="{Binding FicMetZt_rh_cat_dir_web_Items}"
+                               SelectedItem="{Binding FicMetZt_rh_cat_dir_web_SelectedItem, Mode=TwoWay}"
+                               SelectionMode="Single"
+                               ScrollingMode="Line"
+                               >
+
+                <syncfusion:SfDataGrid.Columns x:TypeArguments="syncfusion:Columns">
+
+                    <syncfusion:GridTextColumn HeaderText="ID"
+                                           HeaderFontAttribute="Bold"
+                                           HeaderCellTextSize="25"
+                                           MappingName="IdDirWeb" />
+
+                    <syncfusion:GridTextColumn HeaderText="DESCRIPCIÓN"
+                                           HeaderFontAttribute="Bold"
+                                           HeaderCellTextSize="25"
+                                           MappingName="DesDirWeb" />
+
+                    <syncfusion:GridTextColumn HeaderText="DIRECCIÓN WEB"
+                                           HeaderFontAttribute="Bold"
+                                           HeaderCellTextSize="25"
+                                           MappingName="DirWeb" />
+
+                    <syncfusion:GridSwitchColumn HeaderText="PRINCIPAL"
+                                           HeaderFontAttribute="Bold"
+                                           HeaderCellTextSize="25"
+                                           MappingName="Principal" />
+
+                    <syncfusion:GridTextColumn HeaderText="ID GEN DIRWEB"
+                                           HeaderFontAttribute="Bold"
+                                           HeaderCellTextSize="25"
+                                           MappingName="IdGenDirWeb" />
+
+                </syncfusion:SfDataGrid.Columns>
+
+            </syncfusion:SfDataGrid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
