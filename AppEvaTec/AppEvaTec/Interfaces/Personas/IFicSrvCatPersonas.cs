@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
+using AppEvaTec.Models.Personas;
+using System.Threading.Tasks;
 namespace AppEvaTec.Interfaces.Personas
 {
     public interface IFicSrvCatPersonas

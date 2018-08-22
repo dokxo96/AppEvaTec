@@ -9,7 +9,7 @@ using Xamarin.Forms.Xaml;
 using AppEvaTec.ViewModels.Personas;
 using Plugin.Media;
 
-namespace AppEvaTec.Views
+namespace AppEvaTec.Views.Personas
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class FicViCpCatPersonasDetalle : ContentPage

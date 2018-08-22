@@ -17,7 +17,7 @@ namespace AppEvaTec.Views.Personas
     public partial class FicViCpMainPage : ContentPage
     {
         private object FicLoParameter { get; set; }
-        public MainPage(object ficPaParameter)
+        public FicViCpMainPage(object ficPaParameter)
         {
             InitializeComponent();
             FicLoParameter = ficPaParameter;

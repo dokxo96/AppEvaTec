@@ -27,7 +27,7 @@ namespace AppEvaTec.Views.Personas
 
         private void BtnOc_Clicked(object sender, EventArgs e)
         {
-            ((NavigationPage)this.Parent).PushAsync(new FicViMainPage(null));
+            ((NavigationPage)this.Parent).PushAsync(new FicViCpMainPage(null));
         }
 
         private void NewUser_Clicked(object sender, EventArgs e)

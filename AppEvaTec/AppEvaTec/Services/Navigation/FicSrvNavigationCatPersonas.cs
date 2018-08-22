@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using AppEvaTec.Interfaces.Navigation;
+using Xamarin.Forms;
 using AppEvaTec.ViewModels.Personas;
 using AppEvaTec.Views.Personas;
+
 
 namespace AppEvaTec.Services.Navigation
 {
