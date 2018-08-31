@@ -28,11 +28,13 @@
                 <Image Source="login.png" HeightRequest="250" WidthRequest="170"/>
                 <Entry x:Name="User" Text="{Binding Usuario}" Grid.Row="1" Placeholder="Nombre de Usuario" PlaceholderColor="#bababa" FontSize="Medium" VerticalOptions="Center"/>
                 <Entry x:Name="Pass" Text="{Binding Contraseña}" Grid.Row="2" Placeholder="Contraseña" PlaceholderColor="#bababa" FontSize="Medium" IsPassword="True"/>
-                <Button x:Name="BtnEntrar" Command="{Binding FicMetLoginCommand}" Text="Iniciar Sesión" BackgroundColor="#1CCB39" TextColor="White" HeightRequest="50" VerticalOptions="Start" Grid.Row="3"/>
+                <Button x:Name="BtnEntrar"  Text="Iniciar Sesión" BackgroundColor="#1CCB39" TextColor="White" HeightRequest="50" VerticalOptions="Start" Grid.Row="3"/>
                 <Button x:Name="BtnOc" Text="¿Olvidaste tu Contraseña? | Restablecer Contraseña" BackgroundColor="White" TextColor="Black" FontSize="14" FontAttributes="Italic" HorizontalOptions="Center" Grid.Row="4" Margin="0,10,0,0"/>
                 <StackLayout>
-                    <Label Text="{Binding Pruebas }"></Label>
-                    <Label Text="{Binding Tec }"></Label>
+                    <Label x:Name="statusInternet" IsVisible="False"/>
+                    <ProgressBar x:Name="MainProgress"  Progress=".2" WidthRequest="300" HeightRequest="20" VerticalOptions="Center" HorizontalOptions="Center">
+                        
+                    </ProgressBar>
                 </StackLayout>
 
                 <Grid Grid.Row="5">
