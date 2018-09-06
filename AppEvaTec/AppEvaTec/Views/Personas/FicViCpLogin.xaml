@@ -3,12 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppEvaTec.Views.Personas.FicViCpLogin">
     <ContentPage.Content>
+        <ScrollView>
         <Grid >
 
             <Grid.RowDefinitions>
-                <RowDefinition Height="50"/>
+                <RowDefinition Height="30"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="50"/>
+                <RowDefinition Height="30"/>
             </Grid.RowDefinitions>
 
             <Grid Grid.Row="1" Margin="20,0,20,0">
@@ -21,20 +22,19 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="40"/>
                     <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
                     <RowDefinition Height="*"/>
 
                 </Grid.RowDefinitions>
 
-                <Image Source="login.png" HeightRequest="250" WidthRequest="170"/>
+                <!--<Image Source="login.png" HeightRequest="250" WidthRequest="170"/>-->
                 <Entry x:Name="User" Text="{Binding Usuario}" Grid.Row="1" Placeholder="Nombre de Usuario" PlaceholderColor="#bababa" FontSize="Medium" VerticalOptions="Center"/>
                 <Entry x:Name="Pass" Text="{Binding Contraseña}" Grid.Row="2" Placeholder="Contraseña" PlaceholderColor="#bababa" FontSize="Medium" IsPassword="True"/>
                 <Button x:Name="BtnEntrar"  Text="Iniciar Sesión" BackgroundColor="#1CCB39" TextColor="White" HeightRequest="50" VerticalOptions="Start" Grid.Row="3"/>
-                <Button x:Name="BtnOc" Text="¿Olvidaste tu Contraseña? | Restablecer Contraseña" BackgroundColor="White" TextColor="Black" FontSize="14" FontAttributes="Italic" HorizontalOptions="Center" Grid.Row="4" Margin="0,10,0,0"/>
+                <Button x:Name="BtnOc" Text="¿Olvidaste tu Contraseña? | Restablecer Contraseña" BackgroundColor="White" TextColor="Black" FontSize="12" FontAttributes="Italic" HorizontalOptions="Center" Grid.Row="4" Margin="10,10,10,10"/>
+                <ActivityIndicator x:Name="EsperarAc"  Color="Red"  />
                 <StackLayout>
-                    <Label x:Name="statusInternet" IsVisible="False"/>
-                    <ProgressBar x:Name="MainProgress"  Progress=".2" WidthRequest="300" HeightRequest="20" VerticalOptions="Center" HorizontalOptions="Center">
-                        
-                    </ProgressBar>
+                        <Label x:Name="statusInternet" IsVisible="False"/>
                 </StackLayout>
 
                 <Grid Grid.Row="5">
@@ -56,7 +56,7 @@
                 <StackLayout Grid.Row="6">
                     <Button Text="Iniciar Sesión con Facebook" BackgroundColor="#3399ff" TextColor="White" HeightRequest="50" VerticalOptions="Start" Grid.Row="3" Image="facebook.png"
                             />
-                    <Button Text="Iniciar Sesión con Gmail" BackgroundColor="#ff3333" TextColor="White" HeightRequest="50" VerticalOptions="Start" Grid.Row="3" Image="gmail.png"
+                    <Button Text="Iniciar Sesión con Gmail" BackgroundColor="Red" TextColor="White" HeightRequest="50" VerticalOptions="Start" Grid.Row="4" Image="gmail.png"
                             />
                 </StackLayout>
 
@@ -68,6 +68,6 @@
             </StackLayout>
 
         </Grid>
-
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

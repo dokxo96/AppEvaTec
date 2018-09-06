@@ -10,6 +10,8 @@ using AppEvaTec.ViewModels.Personas;
 using System.Net.Http;
 using Newtonsoft.Json;
 using Plugin.Connectivity;
+using AppEvaTec.Views.Menu1;
+using AppEvaTec.WebApi;
 
 namespace AppEvaTec.Views.Personas
 {
@@ -26,14 +28,22 @@ namespace AppEvaTec.Views.Personas
             NewUser.Clicked += NewUser_Clicked;
             BtnOc.Clicked += BtnOc_Clicked;
             BtnEntrar.Clicked += BtnEntrar_Clicked;
-            
+            CheckInternet(null, null);
+
+
         }
+
+        
+
         public void CheckInternet(object sender, EventArgs e)
         {
             statusInternet.Text = CrossConnectivity.Current.IsConnected ? "Connected" : "Disconnected";
         }
         private async void BtnEntrar_Clicked(object sender, EventArgs e)
         {
+           Device.BeginInvokeOnMainThread(async () => {
+                EsperarAc.IsRunning = true;
+
             if (string.IsNullOrEmpty(User.Text))
             {
                 var j = new modal();
@@ -52,39 +62,45 @@ namespace AppEvaTec.Views.Personas
 
             if (statusInternet.Text == "Connected")
             {
-                if (User.Text == "Admin" && Pass.Text == "admin")
-                    {
-                                     await MainProgress.ProgressTo(1, 2000, Easing.Linear);
+
+                                     
                                      Device.BeginInvokeOnMainThread(async () => {
-
-                                     //string dir ="http: //localhost:60304/api/usuarios?user"+Usuario+ "&password="+Contraseña;
-                                     //HttpClient FicHttpClient = new HttpClient();
-
-                                     //var response = await FicHttpClient.GetStringAsync("http://localhost:60304/api/usuarios?user=DMORAA&password=Dany01");
-                                     try
+                                         string dir = "http://localhost:60304/api/verifica?user="+User.Text+"&password="+Pass.Text;
+                                         RestClient cliente = new RestClient();
+                                         var result = await cliente.Get<LoginModel>(dir+"");
+                                         
+                                        // http://localhost:60304/api/verifica?user=BARIASP&password=Brayan01
+                                         if(result != null)
                                          {
-                                            //var test = JsonConvert.SerializeObject(response, Formatting.Indented);
+                                            EsperarAc.IsRunning =false;
 
-                                            await ((NavigationPage)this.Parent).PushAsync(new FicViCpMainPage(null));
-
+                                             await ((NavigationPage)this.Parent).PushAsync(new FicMasterPage());
                                          }
-                                     catch (Exception ex)
+                                         else
                                          {
-                                            var j = new modal();
-                                            await j.DisplayAlert("pruebas", "Servidor desactivado", "ok");
+                                             var j = new modal();
+                                             await j.DisplayAlert("pruebas", "JSon Vacio", "ok");
                                          }
+                                             
 
+                                     
                             });
-                    }
+                    
             }
-            else
+            else if(statusInternet.Text == "Disconnected")
             {
                 //metodo local
-                MainProgress.ProgressTo(1, 1000, Easing.SinIn);
-                await ((NavigationPage)this.Parent).PushAsync(new FicViCpMainPage(null));
+                
+                if (User.Text == "Admin" && Pass.Text == "admin")
+                {
+                    var j = new modal();
+                    await j.DisplayAlert("Aletra¡", "Estas Conectado sin conexion,por lo que los datos vizualizados podrian no ser los actuales", "ok");
+                    EsperarAc.IsRunning = false;
+                    await ((NavigationPage)this.Parent).PushAsync(new FicMasterPage());
+                }
             }
 
-           
+            });
             //((NavigationPage)this.Parent).PushAsync(new FicViCpMainPage(null));
         }
         private void BtnOc_Clicked(object sender, EventArgs e)
